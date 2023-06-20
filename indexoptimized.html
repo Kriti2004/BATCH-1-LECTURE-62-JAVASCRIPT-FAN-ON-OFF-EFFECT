@@ -5,15 +5,27 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>JAVASCRIPT FAN ON OFF EFFECT</title>
         <style>
-            /*div[data-kriti="myfanbox"]{ // Atrributes selector
-                border: 1px dashed black;
-            }*/
+            .buttongroup > button:first-child{
+                padding: 20px 10px;
+                width: 50px;
+                height: 40px;
+                background-image: url(./img/b.png);
+                background-repeat: no-repeat;
+                background-size:cover;
+                background-position: center;
+                border: none;
+                
+            }
+            .buttongroup > button:first-child:hover{
+                box-shadow: 0px 0px 2px 3px gray;
+            }
             .fanbox{
-                width: 300px;
-                height: 300px;
+                width: 400px;
+                height: 400px;
                 background-image: url(./img/F.png);
                 background-repeat: no-repeat;
                 background-size: cover;
+                background-position: center;
                 margin: 100px auto;
                 animation-name: fan;
                 animation-duration: 1s;
@@ -31,29 +43,34 @@
             }
         </style>
         <script>
+            function x(elem){
+                // Function body
 
+                // Function is returning something
+                return document.querySelector(elem);
+            }
             // 1. Function Defination
             function startFan(speed){ // speed is a formal arguement
                 // We have to check some condition
                 // if else if else if ... else laddar
                 if(speed==0){
-                    document.querySelector('.fanbox').style.animationPlayState="paused";
+                    x('.fanbox').style.animationPlayState="paused";
                 }else if(speed == 1){
                     // Testing
-                    alert("1")
+                    //alert("1")
+                    x('[".fanbox"]').style.animationPlayState = 'running';
+                    x('["#fanboxx"]').style.animationDuration = '0.7s';
                 }else if(speed == 2){
-                    alert('2')
+                    //alert('2')
                     // object.method
-                    // document.querySelector('[data-kriti="myfanbox"]').style.animationPlayState = 'running';
-                    // document.querySelector('[data-kriti="myfanbox"]').style.animationDuration = '0.5s';
-                    document.querySelector('["fanbox"]').style.animationPlayState = 'running';
-                    document.querySelector('["myfanbox"]').style.animationDuration = '0.5s';
+                    x('[data-kriti="myfanbox"]').style.animationPlayState = 'running';
+                    x('[data-kriti="myfanbox"]').style.animationDuration = '0.5';
                 }else{
                     // alert('3')
                     // object.member
                     // object.method()
                     document.getElementById('fanboxx').style.animationPlayState="running";
-                    document.getElementById('fanboxx').style.animationDuration="0.7s";
+                    document.getElementById('fanboxx').style.animationDuration="0.3s";
                 }
             }
         </script>
@@ -62,8 +79,8 @@
         <div class="fanbox" id="fanboxx" data-kriti="myfanbox">
 
         </div>
-        <div style="text-align: center;">
-            <button onclick="startFan('0')">Stop</button>
+        <div style="text-align: center;" class="buttongroup">
+            <button onclick="startFan('0')"></button>
             <button onclick="startFan('1')">1</button>
             <button onclick="startFan('2')">2</button>
             <button onclick="startFan('3')">3</button>
