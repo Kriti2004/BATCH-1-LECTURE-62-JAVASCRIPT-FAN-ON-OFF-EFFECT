@@ -5,85 +5,78 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>JAVASCRIPT FAN ON OFF EFFECT</title>
         <style>
-            .buttongroup > button:first-child{
-                padding: 20px 10px;
-                width: 50px;
-                height: 40px;
-                background-image: url(./img/b.png);
-                background-repeat: no-repeat;
-                background-size:cover;
-                background-position: center;
-                border: none;
-                
-            }
-            .buttongroup > button:first-child:hover{
-                box-shadow: 0px 0px 2px 3px gray;
-            }
-            .fanbox{
-                width: 400px;
-                height: 400px;
-                background-image: url(./img/F.png);
+            .fanBox{
+                width: 330px;
+                height: 330px;
+                background-image: url(./img/f1.png);
                 background-repeat: no-repeat;
                 background-size: cover;
-                background-position: center;
-                margin: 100px auto;
-                animation-name: fan;
-                animation-duration: 1s;
-                animation-timing-function: linear;
-                animation-iteration-count: infinite;
-                /*animation-play-state: paused;*/
+                margin: 70px auto;
+                animation: fan 1s linear infinite;
+                animation-play-state: paused;
             }
             @keyframes fan {
                 0%{
-                    transform: rotatez(0deg);
+                    transform: rotateZ(0deg);
                 }
                 100%{
-                    transform: rotatez(359deg)
+                    transform: rotateZ(359deg);
                 }
+            }
+            .btn{
+                text-align: center;
+            }
+            .btn > button:first-child{
+                background-image: url(./img/stop.png);
+              
+                background-size: cover;
+                width: 100px;
+                height: 100px;
+                border: none;
+                margin-top: 40px;
+            }
+            .btn > button:nth-child(2),.btn > button:nth-child(3),.btn > button:nth-child(4){
+                width: 80px;
+                height: 60px;
+                border: none;
+                border-radius: 10px;
+                margin-top: -50px;
+                background-color: green;
             }
         </style>
         <script>
-            function x(elem){
-                // Function body
-
-                // Function is returning something
-                return document.querySelector(elem);
+            function startFan(speed){
+            // function body
+            if(speed == 0){
+                // object.method()
+                // alert('hello')
+                document.querySelector('.fanBox').style.animationPlayState = 'Paused';
+            }else if(speed == 1){
+                // Object.Method()
+                // alert(20)
+                document.querySelector('.fanBox').style.animationPlayState = 'running';
+                document.querySelector('.fanBox').style.animationDuration = '0.6s';
+            }else if(speed == 2){
+                // Object.Method()
+                document.querySelector('.fanBox').style.animationPlayState = 'running';
+                document.querySelector('.fanBox').style.animationDuration = '0.4s';
+            }else{
+                // Object.Method()
+                document.querySelector('.fanBox').style.animationPlayState = 'running';
+                document.querySelector('.fanBox').style.animationDuration = '0.3s';
             }
-            // 1. Function Defination
-            function startFan(speed){ // speed is a formal arguement
-                // We have to check some condition
-                // if else if else if ... else laddar
-                if(speed==0){
-                    x('.fanbox').style.animationPlayState="paused";
-                }else if(speed == 1){
-                    // Testing
-                    //alert("1")
-                    x('[".fanbox"]').style.animationPlayState = 'running';
-                    x('["#fanboxx"]').style.animationDuration = '0.7s';
-                }else if(speed == 2){
-                    //alert('2')
-                    // object.method
-                    x('[data-kriti="myfanbox"]').style.animationPlayState = 'running';
-                    x('[data-kriti="myfanbox"]').style.animationDuration = '0.5';
-                }else{
-                    // alert('3')
-                    // object.member
-                    // object.method()
-                    document.getElementById('fanboxx').style.animationPlayState="running";
-                    document.getElementById('fanboxx').style.animationDuration="0.3s";
-                }
-            }
+        }
         </script>
     </head>
     <body>
-        <div class="fanbox" id="fanboxx" data-kriti="myfanbox">
+        <div class="fanBox">
 
         </div>
-        <div style="text-align: center;" class="buttongroup">
-            <button onclick="startFan('0')"></button>
-            <button onclick="startFan('1')">1</button>
-            <button onclick="startFan('2')">2</button>
-            <button onclick="startFan('3')">3</button>
+        <div class="btn">
+            <button onclick="startFan(0)"></button>
+            <button style="background-color: rgb(62, 182, 62);" onclick="startFan(1)">Low</button>
+            <button style="background-color: green;" onclick="startFan(2)">Medium</button>
+            <button style="background-color: rgb(14, 93, 14);" onclick="startFan(3)">High</button>
         </div>
 
         <script>
